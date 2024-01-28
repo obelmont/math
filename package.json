@@ -1,6 +1,6 @@
 {
-  "name": "tsrollup",
-  "version": "0.0.0",
+  "name": "@obelmont/math",
+  "version": "0.0.1",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "browser": "dist/index.iife.js",
