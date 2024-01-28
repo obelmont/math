@@ -1,3 +1,7 @@
+/**
+ * Interpolate the value between two points in a straight line.
+ * If the interpolated value is less than the cutoff the end paramater will be returned
+ */
 export const lerp = (
   start: number,
   end: number,
@@ -10,6 +14,14 @@ export const lerp = (
   return value
 }
 
+/**
+ * Map an existing value from one range to a new range.
+ *
+ * First get the percentage location of current value to in the first given range
+ * Then get max range value of the new range by subtracing the new floor from the new ceiling
+ * Create the new value by multiplying the percentage location by new range.
+ * Finally add the new floor to this new value to make sure were mapping to the correct range
+ */
 export const mapToRange = (
   value: number,
   oldFloor: number,
@@ -19,5 +31,3 @@ export const mapToRange = (
 ) =>
   ((value - oldFloor) / (oldCeiling - oldFloor)) * (newCeling - newFloor) +
   newFloor
-
-export { getRandom } from '../random'

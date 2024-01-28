@@ -1,17 +1,31 @@
+/**
+ * Get random value between two numbers
+ * This can return a floating point number
+ */
 const getRandom = (min: number, max: number): number => {
   return Math.random() * (max - min) + min
 }
 
+/**
+ * Get random value between two numbers
+ * This random value will not be either the min or max number
+ * This will only return an integer
+ */
 const getRandomInteger = (min: number, max: number): number => {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min) + min)
+  return Math.floor(
+    Math.random() * (Math.floor(max) - Math.ceil(min)) + Math.ceil(min)
+  )
 }
 
+/**
+ * Get random value between two numbers
+ * This random value can be the min and max number
+ * This will only return an integer
+ */
 const getRandomIntegerInclusive = (min: number, max: number): number => {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1) + min)
+  return Math.floor(
+    Math.random() * (Math.floor(max) - Math.ceil(min) + 1) + Math.ceil(min)
+  )
 }
 
 const getRandomGaussian = (mu: number = 0, sigma: number = 1): number => {
