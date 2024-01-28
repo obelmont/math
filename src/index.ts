@@ -1,2 +1,7 @@
-export * from './general'
-export * from './random'
+export { lerp, mapToRange } from './general'
+export {
+  getRandom,
+  getRandomInteger,
+  getRandomIntegerInclusive,
+  getRandomGaussian,
+} from './random'
