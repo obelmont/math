@@ -1,9 +1,21 @@
 {
   "name": "@obelmont/math",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "main": "./dist/index.cjs.js",
+      "module": "./dist/index.esm.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./random": {
+      "main": "./dist/random/index.cjs.js",
+      "module": "./dist/random/index.esm.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "author": {
     "name": "obelmont",
     "email": "obelmont@oliverbelmont.com"
