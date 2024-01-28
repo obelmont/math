@@ -1,0 +1,5 @@
+# Ignore artifacts:
+dist
+demo
+.rollup.cache
+node_modules
