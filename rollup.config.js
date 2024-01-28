@@ -20,13 +20,6 @@ export default [
         file: pkg.module,
         format: 'es',
       },
-      {
-        file: pkg.browser,
-        format: 'iife',
-        name: pkg.name,
-        // https://rollupjs.org/guide/en/#outputglobals
-        globals: {},
-      },
     ],
     plugins: [
       resolve(),
