@@ -43,5 +43,4 @@ const addModule = (name) => ({
 
 export default [
   addModule(),
-  addModule('random')
 ]
