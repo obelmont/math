@@ -19,3 +19,5 @@ export const mapToRange = (
 ) =>
   ((value - oldFloor) / (oldCeiling - oldFloor)) * (newCeling - newFloor) +
   newFloor
+
+export { getRandom } from './random'

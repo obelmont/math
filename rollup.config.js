@@ -4,36 +4,44 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import serve from 'rollup-plugin-serve'
-import pkg from './package.json' assert { type: 'json' }
 
 const devServerActive = process.env.DEV_SERVER_ACTIVE
 
-export default [
-  {
-    input: 'src/index.ts',
-    output: [
-      {
-        file: pkg.main,
-        format: 'cjs',
-      },
-      {
-        file: pkg.module,
-        format: 'es',
-      },
-    ],
-    plugins: [
-      resolve(),
-      commonjs(),
-      typescript(),
-      devServerActive &&
-        serve({
-          open: true,
-          contentBase: ['demo', 'dist'],
-        }),
-      devServerActive &&
-        livereload({
-          watch: ['dist', 'demo'],
-        }),
-    ],
+const addModule = (name) => ({
+  input: `src/${name ? `${name}/` : ''}index.ts`,
+  output: [
+    {
+      file: `dist/${name ? `${name}/` : ''}index.cjs.js`,
+      format: 'cjs',
+    },
+    {
+      file: `dist/${name ? `${name}/` : ''}index.esm.js`,
+      format: 'es',
+    },
+  ],
+  plugins: [
+    resolve(),
+    commonjs(),
+    typescript(),
+    devServerActive &&
+      serve({
+        open: true,
+        contentBase: ['demo', 'dist'],
+      }),
+    devServerActive &&
+      livereload({
+        watch: ['dist', 'demo'],
+      }),
+  ],
+  onwarn(warning) {
+    if (warning.code !== 'THIS_IS_UNDEFINED') {
+      // eslint-disable-next-line no-console
+      console.error(`(!) ${warning.message}`);
+    }
   },
+})
+
+export default [
+  addModule(),
+  addModule('random')
 ]
