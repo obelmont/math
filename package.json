@@ -1,29 +1,19 @@
 {
   "name": "@obelmont/math",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.esm.js"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.cjs.js"
-      }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "default": "./dist/index.cjs.js"
     },
     "./random": {
-      "import": {
-        "types": "./dist/random/index.d.ts",
-        "default": "./dist/random/index.esm.js"
-      },
-      "require": {
-        "types": "./dist/random/index.d.ts",
-        "default": "./dist/random/index.cjs.js"
-      }
+      "types": "./dist/random/index.d.ts",
+      "import": "./dist/random/index.esm.js",
+      "default": "./dist/random/index.cjs.js"
     }
   },
   "author": {
