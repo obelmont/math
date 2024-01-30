@@ -4,4 +4,5 @@ export {
   getRandomInteger,
   getRandomIntegerInclusive,
   getRandomGaussian,
+  getMonteCarlo,
 } from './random'

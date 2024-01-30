@@ -44,24 +44,24 @@ const getRandomGaussian = (mu: number = 0, sigma: number = 1): number => {
   return y1 * sigma + mu
 }
 
-// Monte Carlo probability function (prefers larger numbers)
-// for (let index = 0; index < 100; index++) {
-//   console.log(monteCarlo())
-// }
-
-// const getMonteCarlo = (): number => {
-//   while (true) {
-//     const r1 = Math.random()
-//     const probability = r1
-//     const r2 = Math.random()
-//     if (r2 < probability) return r1
-//   }
-// }
+/**
+ * Get random value between 0 and 1 using the Monte Carlo method
+ * Monte Carlo probability prefers to return larger numbers
+ */
+const getMonteCarlo = (): number => {
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    const r1 = Math.random()
+    const probability = r1
+    const r2 = Math.random()
+    if (r2 < probability) return r1
+  }
+}
 
 export {
   getRandom,
   getRandomInteger,
   getRandomIntegerInclusive,
   getRandomGaussian,
-  // getMonteCarlo,
+  getMonteCarlo,
 }
